@@ -1,11 +1,70 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Task Manager</title>
+  <meta charset="UTF-8">
+  <title>Smart Task Manager</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>🧠 Smart Task Manager</h1>
 
-<h1>Hello World 🚀</h1>
+  <!-- Task Input -->
+  <div class="task-input">
+    <label>TASK TITLE</label>
+    <input type="text" id="taskTitle" placeholder="What needs to be done?">
 
+    <label>CATEGORY</label>
+    <select id="taskCategory">
+      <option value="Work">Work</option>
+      <option value="Personal">Personal</option>
+      <option value="Study">Study</option>
+    </select>
+
+    <label>PRIORITY</label>
+    <select id="taskPriority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+
+    <label>DUE DATE & TIME</label>
+    <input type="datetime-local" id="taskDue">
+
+    <label>TAGS</label>
+    <input type="text" id="taskTags" placeholder="#urgent, #coding">
+
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <!-- Search & Filter -->
+  <div class="filters">
+    <input type="text" id="searchBox" placeholder="Search tasks or tags..." onkeyup="searchTasks()">
+
+    <select id="filterStatus" onchange="filterTasks()">
+      <option value="All">All Status</option>
+      <option value="Pending">Pending</option>
+      <option value="Completed">Completed</option>
+    </select>
+
+    <select id="filterCategory" onchange="filterTasks()">
+      <option value="All">All Categories</option>
+      <option value="Work">Work</option>
+      <option value="Personal">Personal</option>
+      <option value="Study">Study</option>
+    </select>
+
+    <select id="filterSort" onchange="filterTasks()">
+      <option value="Deadline">Sort by Deadline</option>
+      <option value="Priority">Sort by Priority</option>
+    </select>
+  </div>
+
+  <!-- Task List -->
+  <ul id="taskList">
+    <p>No tasks found. Try adjusting your filters or add a new task above.</p>
+  </ul>
+
+  <script src="script.js"></script>
 </body>
 </html>
